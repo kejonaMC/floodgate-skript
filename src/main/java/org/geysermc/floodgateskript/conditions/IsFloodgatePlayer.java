@@ -15,10 +15,10 @@ import org.jetbrains.annotations.Nullable;
 
 @Name("Is from Floodgate")
 @Description("Condition to check if a player is a Floodgate player")
-public class IsBedrockPlayer extends Condition {
+public class IsFloodgatePlayer extends Condition {
 
     static {
-        Skript.registerCondition(IsBedrockPlayer.class, "%player% (1¦is|2¦is(n't| not)) [from] floodgate");
+        Skript.registerCondition(IsFloodgatePlayer.class, "%player% (1¦is|2¦is(n't| not)) [from] floodgate");
     }
 
     private Expression<Player> player;

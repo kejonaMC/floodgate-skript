@@ -17,7 +17,7 @@ public final class FloodgateSkript extends JavaPlugin {
         if (Bukkit.getPluginManager().getPlugin("floodgate-bukkit") != null && Bukkit.getPluginManager().getPlugin("Skript") != null) {
             addonInstance = Skript.registerAddon(this);
             try {
-                addonInstance.loadClasses("org.geysermc.floodgateskript", "conditions");
+                addonInstance.loadClasses("org.geysermc.floodgateskript", "expressions", "conditions");
             } catch (IOException e) {
                 getLogger().warning("IOException caught. Disabling plugin.");
                 getServer().getPluginManager().disablePlugin(this);
