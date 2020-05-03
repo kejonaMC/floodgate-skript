@@ -1,0 +1,6 @@
+name: Floodgate-Skript
+version: ${project.version}
+main: org.geysermc.floodgateskript.FloodgateSkript
+api-version: 1.15
+authors: [GeyserMC]
+depend: [floodgate-bukkit, Skript]
