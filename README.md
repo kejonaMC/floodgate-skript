@@ -1,4 +1,4 @@
-Floodgate support for Skript. Built with 2.5alpha3. 
+Floodgate support for Skript. Built with SkriptLang's fork, version 2.5alpha3. 
 
 Usage:
 
