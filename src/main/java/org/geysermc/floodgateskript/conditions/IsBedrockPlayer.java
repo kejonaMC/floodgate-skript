@@ -18,7 +18,7 @@ import org.jetbrains.annotations.Nullable;
 public class IsBedrockPlayer extends Condition {
 
     static {
-        Skript.registerCondition(IsBedrockPlayer.class, "%player% is floodgate");
+        Skript.registerCondition(IsBedrockPlayer.class, "%player% (1¦is|2¦is(n't| not)) [from] floodgate");
     }
 
     private Expression<Player> player;
@@ -31,14 +31,15 @@ public class IsBedrockPlayer extends Condition {
     @Override
     public boolean init(Expression<?>[] exprs, int matchedPattern, Kleenean isDelayed, SkriptParser.ParseResult parseResult) {
         player = (Expression<Player>) exprs[0];
+        setNegated(parseResult.mark == 1);
         return true;
     }
 
     @Override
     public boolean check(Event e) {
         if (player.getSingle(e) != null) {
-            return FloodgateAPI.isBedrockPlayer(player.getSingle(e));
+            return (FloodgateAPI.isBedrockPlayer(player.getSingle(e))) == isNegated();
         }
-        return false;
+        return isNegated();
     }
 }
