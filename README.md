@@ -12,9 +12,21 @@ if player is from floodgate:
 Finding a player's platform:
 
 ```
-set {_device} to device of player
+set {_device} to device of floodgate player
+```
+
+Finding a player's version:
+
+```
+set {_version} to version of floodgate player
+```
+
+Finding a player's language/locale:
+
+```
+set {_language} to language of floodgate player
 ```
 
 *Compiling:* Clone the repo and run `mvn clean install` in the source directory.
 
-Discord server: https://discord.gg/jNNC4CZtsN
+Camotoy's Discord server: https://discord.gg/jNNC4CZtsN

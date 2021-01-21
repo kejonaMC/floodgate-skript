@@ -1,4 +1,4 @@
-package org.geysermc.floodgateskript.expressions;
+package com.github.camotoy.floodgate_skript.expressions;
 
 import ch.njol.skript.Skript;
 import ch.njol.skript.doc.Description;
@@ -11,25 +11,28 @@ import ch.njol.util.Kleenean;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.geysermc.floodgate.FloodgateAPI;
+import org.geysermc.floodgate.FloodgatePlayer;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 @Name("get Bedrock platform")
-@Description("Get the device that the Floodgate player is playing on")
+@Description("Returns the device that the Floodgate player is playing on")
 public class GetBedrockPlatform extends SimpleExpression<String> {
 
     static {
         Skript.registerExpression(GetBedrockPlatform.class, String.class, ExpressionType.COMBINED,
-                "[the] [bedrock] (platform|device) of [the] %player%");
+                "[the] [bedrock] (platform|device) of [the] [floodgate] %player%");
     }
 
     private Expression<Player> player;
 
-    @Nullable
     @Override
-    protected String[] get(Event e) {
-        if (player.getSingle(e) != null) {
-            if (FloodgateAPI.isBedrockPlayer(player.getSingle(e))) {
-                return new String[] {FloodgateAPI.getPlayer(player.getSingle(e)).getDeviceOS().toString()};
+    protected String[] get(@NotNull Event e) {
+        Player bukkitPlayer = player.getSingle(e);
+        if (bukkitPlayer != null) {
+            FloodgatePlayer floodgatePlayer = FloodgateAPI.getPlayer(bukkitPlayer);
+            if (floodgatePlayer != null) {
+                return new String[] {floodgatePlayer.getDeviceOS().toString()};
             }
         }
         return new String[] {"Java"};
@@ -41,17 +44,17 @@ public class GetBedrockPlatform extends SimpleExpression<String> {
     }
 
     @Override
-    public Class<? extends String> getReturnType() {
+    public @NotNull Class<? extends String> getReturnType() {
         return String.class;
     }
 
     @Override
-    public String toString(@Nullable Event e, boolean debug) {
+    public @NotNull String toString(@Nullable Event e, boolean debug) {
         return "Get Floodgate player's platform: " + player.toString(e, debug);
     }
 
     @Override
-    public boolean init(Expression<?>[] exprs, int matchedPattern, Kleenean isDelayed, SkriptParser.ParseResult parseResult) {
+    public boolean init(Expression<?> @NotNull [] exprs, int matchedPattern, @NotNull Kleenean isDelayed, SkriptParser.@NotNull ParseResult parseResult) {
         player = (Expression<Player>) exprs[0];
         return true;
     }

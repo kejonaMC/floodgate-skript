@@ -1,7 +1,7 @@
 name: Floodgate-Skript
 version: ${project.version}
-main: org.geysermc.floodgateskript.FloodgateSkript
+main: com.github.camotoy.floodgate_skript.FloodgateSkript
 api-version: 1.15
-authors: [GeyserMC]
+authors: [Camotoy]
 depend: [floodgate-bukkit, Skript]
-softdepend: [Geyser-Bukkit]
+softdepend: [Geyser-Spigot]

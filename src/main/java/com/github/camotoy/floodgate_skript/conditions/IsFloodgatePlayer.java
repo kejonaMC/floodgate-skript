@@ -1,5 +1,4 @@
-package org.geysermc.floodgateskript.conditions;
-
+package com.github.camotoy.floodgate_skript.conditions;
 
 import ch.njol.skript.doc.Description;
 import ch.njol.skript.doc.Name;
@@ -11,6 +10,7 @@ import ch.njol.util.Kleenean;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.geysermc.floodgate.FloodgateAPI;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 @Name("Is from Floodgate")
@@ -24,21 +24,22 @@ public class IsFloodgatePlayer extends Condition {
     private Expression<Player> player;
 
     @Override
-    public String toString(@Nullable Event e, boolean debug) {
+    public @NotNull String toString(@Nullable Event e, boolean debug) {
         return "Is player from Floodgate: " + player.toString(e, debug);
     }
 
     @Override
-    public boolean init(Expression<?>[] exprs, int matchedPattern, Kleenean isDelayed, SkriptParser.ParseResult parseResult) {
+    public boolean init(Expression<?> @NotNull [] exprs, int matchedPattern, @NotNull Kleenean isDelayed, SkriptParser.ParseResult parseResult) {
         player = (Expression<Player>) exprs[0];
         setNegated(parseResult.mark == 1);
         return true;
     }
 
     @Override
-    public boolean check(Event e) {
-        if (player.getSingle(e) != null) {
-            return (FloodgateAPI.isBedrockPlayer(player.getSingle(e))) == isNegated();
+    public boolean check(@NotNull Event e) {
+        Player bukkitPlayer = player.getSingle(e);
+        if (bukkitPlayer != null) {
+            return (FloodgateAPI.isBedrockPlayer(bukkitPlayer)) == isNegated();
         }
         return isNegated();
     }
