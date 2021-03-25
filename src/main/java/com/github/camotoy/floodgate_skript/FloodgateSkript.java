@@ -13,18 +13,12 @@ public final class FloodgateSkript extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        if (Bukkit.getPluginManager().getPlugin("floodgate-bukkit") != null && Bukkit.getPluginManager().getPlugin("Skript") != null) {
-            addonInstance = Skript.registerAddon(this);
-            try {
-                addonInstance.loadClasses("com.github.camotoy.floodgate_skript", "expressions", "conditions");
-            } catch (IOException e) {
-                getLogger().warning("IOException caught. Disabling plugin.");
-                getServer().getPluginManager().disablePlugin(this);
-            }
-        } else {
-            getLogger().warning("floodgate-bukkit or Skript not found! Disabling plugin.");
+        addonInstance = Skript.registerAddon(this);
+        try {
+            addonInstance.loadClasses("com.github.camotoy.floodgate_skript", "expressions", "conditions");
+        } catch (IOException e) {
+            getLogger().warning("IOException caught. Disabling plugin.");
             getServer().getPluginManager().disablePlugin(this);
         }
-
     }
 }

@@ -10,8 +10,8 @@ import ch.njol.skript.lang.util.SimpleExpression;
 import ch.njol.util.Kleenean;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
-import org.geysermc.floodgate.FloodgateAPI;
-import org.geysermc.floodgate.FloodgatePlayer;
+import org.geysermc.floodgate.api.FloodgateApi;
+import org.geysermc.floodgate.api.player.FloodgatePlayer;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -30,9 +30,9 @@ public class GetBedrockPlatform extends SimpleExpression<String> {
     protected String[] get(@NotNull Event e) {
         Player bukkitPlayer = player.getSingle(e);
         if (bukkitPlayer != null) {
-            FloodgatePlayer floodgatePlayer = FloodgateAPI.getPlayer(bukkitPlayer);
+            FloodgatePlayer floodgatePlayer = FloodgateApi.getInstance().getPlayer(bukkitPlayer.getUniqueId());
             if (floodgatePlayer != null) {
-                return new String[] {floodgatePlayer.getDeviceOS().toString()};
+                return new String[] {floodgatePlayer.getDeviceOs().toString()};
             }
         }
         return new String[] {"Java"};

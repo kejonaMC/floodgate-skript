@@ -9,7 +9,7 @@ import ch.njol.skript.Skript;
 import ch.njol.util.Kleenean;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
-import org.geysermc.floodgate.FloodgateAPI;
+import org.geysermc.floodgate.api.FloodgateApi;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -39,7 +39,7 @@ public class IsFloodgatePlayer extends Condition {
     public boolean check(@NotNull Event e) {
         Player bukkitPlayer = player.getSingle(e);
         if (bukkitPlayer != null) {
-            return (FloodgateAPI.isBedrockPlayer(bukkitPlayer)) == isNegated();
+            return (FloodgateApi.getInstance().isFloodgatePlayer(bukkitPlayer.getUniqueId())) == isNegated();
         }
         return isNegated();
     }
