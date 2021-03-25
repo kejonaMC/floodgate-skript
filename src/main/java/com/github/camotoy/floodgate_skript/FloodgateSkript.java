@@ -2,7 +2,6 @@ package com.github.camotoy.floodgate_skript;
 
 import ch.njol.skript.Skript;
 import ch.njol.skript.SkriptAddon;
-import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.IOException;
