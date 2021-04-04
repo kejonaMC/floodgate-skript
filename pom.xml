@@ -72,7 +72,7 @@
         </repository>
         <repository>
             <id>opencollab-snapshot</id>
-            <url>https://ci.opencollab.dev/maven-snapshots/</url>
+            <url>https://repo.opencollab.dev/maven-snapshots/</url>
         </repository>
         <repository>
             <id>jitpack.io</id>
