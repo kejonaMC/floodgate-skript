@@ -1,7 +1,7 @@
 name: Floodgate-Skript
 version: ${project.version}
 main: com.github.camotoy.floodgate_skript.FloodgateSkript
-api-version: 1.15
+api-version: 1.13
 authors: [Camotoy]
 depend: [floodgate, Skript]
 softdepend: [Geyser-Spigot]
