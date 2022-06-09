@@ -24,7 +24,7 @@ repositories {
     }
 
     maven {
-        url = uri("https://maven.sk89q.com/repo/")
+        url = uri("https://repo.destroystokyo.com/repository/maven-public/")
     }
 
     maven {
@@ -41,10 +41,10 @@ repositories {
 }
 
 dependencies {
-    implementation("org.jetbrains:annotations:18.0.0")
+    implementation("org.jetbrains:annotations:23.0.0")
     compileOnly("org.geysermc.floodgate:api:2.0-SNAPSHOT")
     compileOnly("org.spigotmc:spigot-api:1.15.2-R0.1-SNAPSHOT")
-    compileOnly("com.github.SkriptLang:Skript:2.5.3")
+    implementation("com.github.SkriptLang:Skript:2.6.2")
 }
 
 group = "com.github.camotoy"

@@ -51,5 +51,10 @@
       <option name="name" value="maven6" />
       <option name="url" value="https://jitpack.io" />
     </remote-repository>
+    <remote-repository>
+      <option name="id" value="maven4" />
+      <option name="name" value="maven4" />
+      <option name="url" value="https://repo.destroystokyo.com/repository/maven-public/" />
+    </remote-repository>
   </component>
 </project>
