@@ -1,5 +1,5 @@
 name: Floodgate-Skript
-version: ${project.version}
+version: 2.3.0
 main: com.github.camotoy.floodgate_skript.FloodgateSkript
 api-version: 1.13
 authors: [Camotoy]
