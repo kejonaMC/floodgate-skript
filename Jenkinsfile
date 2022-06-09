@@ -15,7 +15,7 @@ pipeline {
             }
             post {
                 success {
-                    archiveArtifacts 'build/libs/floodgate-skript.jar'
+                    archiveArtifacts 'build/libs/floodgate-skript*.jar'
                 }
             }
         }
