@@ -48,9 +48,9 @@ dependencies {
 }
 
 group = "com.github.camotoy"
-version = "2.1"
+version = "2.2"
 description = "Floodgate-Skript"
-java.sourceCompatibility = JavaVersion.VERSION_11
+java.sourceCompatibility = JavaVersion.VERSION_1_8
 
 publishing {
     publications.create<MavenPublication>("maven") {
