@@ -1,3 +1,5 @@
+[![Discord](https://img.shields.io/discord/853331530004299807?color=7289da&label=discord&logo=discord&logoColor=white)](https://discord.gg/M2SvqCu4e9)
+
 Floodgate support for Skript. Built with SkriptLang's fork, version 2.5alpha3. 
 
 Usage:
@@ -28,5 +30,3 @@ set {_language} to language of floodgate player
 ```
 
 *Compiling:* Clone the repo and run `mvn clean install` in the source directory.
-
-Camotoy's Discord server: https://discord.gg/jNNC4CZtsN
