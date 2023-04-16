@@ -27,7 +27,7 @@ public class GetBedrockPlatform extends SimpleExpression<String> {
     private Expression<Player> player;
 
     @Override
-    protected String[] get(@NotNull Event e) {
+    protected String @NotNull [] get(@NotNull Event e) {
         Player bukkitPlayer = player.getSingle(e);
         if (bukkitPlayer != null) {
             FloodgatePlayer floodgatePlayer = FloodgateApi.getInstance().getPlayer(bukkitPlayer.getUniqueId());

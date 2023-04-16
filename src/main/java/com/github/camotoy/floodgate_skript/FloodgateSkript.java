@@ -8,11 +8,9 @@ import java.io.IOException;
 
 public final class FloodgateSkript extends JavaPlugin {
 
-    private static SkriptAddon addonInstance;
-
     @Override
     public void onEnable() {
-        addonInstance = Skript.registerAddon(this);
+        SkriptAddon addonInstance = Skript.registerAddon(this);
         try {
             addonInstance.loadClasses("com.github.camotoy.floodgate_skript", "expressions", "conditions");
         } catch (IOException e) {

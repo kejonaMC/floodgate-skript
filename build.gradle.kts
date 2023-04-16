@@ -16,7 +16,7 @@ repositories {
     }
 
     maven {
-        url = uri("https://repo.codemc.io/")
+        url = uri("https://repo.skriptlang.org/releases")
     }
 
     maven {
@@ -41,14 +41,14 @@ repositories {
 }
 
 dependencies {
-    implementation("org.jetbrains:annotations:23.0.0")
+    implementation("org.jetbrains:annotations:24.0.1")
     compileOnly("org.geysermc.floodgate:api:2.0-SNAPSHOT")
     compileOnly("org.spigotmc:spigot-api:1.15.2-R0.1-SNAPSHOT")
-    implementation("com.github.SkriptLang:Skript:2.6.2")
+    implementation("com.github.SkriptLang:Skript:2.6.3")
 }
 
 group = "com.github.camotoy"
-version = "2.2"
+version = "2.3"
 description = "Floodgate-Skript"
 java.sourceCompatibility = JavaVersion.VERSION_1_8
 
