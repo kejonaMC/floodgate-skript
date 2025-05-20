@@ -1,6 +1,6 @@
 [![Discord](https://img.shields.io/discord/853331530004299807?color=7289da&label=discord&logo=discord&logoColor=white)](https://discord.gg/M2SvqCu4e9)
 
-[Download](https://ci.kejonamc.dev/job/Floodgate-skript/job/master/)
+[Download](https://github.com/kejonaMC/floodgate-skript/releases)
 
 Floodgate support for Skript. Built with SkriptLang's fork, version 2.6.3. 
 

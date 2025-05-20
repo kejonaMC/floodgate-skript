@@ -28,12 +28,19 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew clean build
 
+      - name: Find built JAR
+        id: find_jar
+        run: |
+          jar_file=$(ls build/libs/floodgate-skript-*.jar | head -n 1)
+          echo "Found JAR: $jar_file"
+          echo "jar_file=$jar_file" >> $GITHUB_OUTPUT
+
       - name: Upload build artifact
         if: github.ref_type != 'tag'
         uses: actions/upload-artifact@v4
         with:
           name: floodgate-skript-jar
-          path: build/libs/floodgate-skript*.jar
+          path: ${{ steps.find_jar.outputs.jar_file }}
 
       - id: create_release
         if: github.ref_type == 'tag'
@@ -51,7 +58,7 @@ jobs:
         uses: actions/upload-release-asset@v1
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: build/libs/floodgate-skript*.jar
+          asset_path: ${{ steps.find_jar.outputs.jar_file }}
           asset_name: floodgate-skript.jar
           asset_content_type: application/java-archive
         env:
