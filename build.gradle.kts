@@ -11,6 +11,11 @@ plugins {
 
 repositories {
     mavenLocal()
+
+    maven {
+        url = uri("https://repo.opencollab.dev/main/")
+    }
+
     maven {
         url = uri("https://hub.spigotmc.org/nexus/content/repositories/snapshots/")
     }
@@ -20,15 +25,11 @@ repositories {
     }
 
     maven {
-        url = uri("https://papermc.io/repo/repository/maven-public/")
+        url = uri("https://repo.papermc.io/repository/maven-public/")
     }
 
     maven {
         url = uri("https://repo.destroystokyo.com/repository/maven-public/")
-    }
-
-    maven {
-        url = uri("https://repo.opencollab.dev/maven-snapshots/")
     }
 
     maven {
